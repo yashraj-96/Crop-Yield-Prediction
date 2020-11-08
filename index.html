@@ -1,0 +1,86 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Nov  8 18:48:21 2020
+
+@author: lenovo
+"""
+
+<!DOCTYPE html>
+
+<html >
+
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Crop Yield Prediction</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  
+
+</head>
+
+
+
+<body>
+
+ <div class="login">
+
+	<h1>Crop Yield Prediction</h1>
+
+
+
+     <!-- Main Input For Receiving Query to our ML -->
+
+    <form action="{{ url_for('predict')}}"method="post">
+
+    	<input type="text" name="Year(y-y)" placeholder="Year" required="required" />
+
+        <input type="text" name="State_Code" placeholder="State_Code" required="required" />
+
+		<input type="text" name="District_name" placeholder="District_name" required="required" />
+
+         <input type="int" name="District_code" placeholder="District_code" required="required" />
+         
+        <input type="text" name="Season" placeholder="Season" required="required" />
+                               
+          <input type="int" name="Crop_code" placeholder="Crop_code" required="required" />
+               
+          <input type="text" name="Crop_category" placeholder="Crop_category" required="required" />
+                 
+         <input type="int" name="Area" placeholder="Area" required="required" />                   
+          
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+    </form>
+
+
+
+   <br>
+
+   <br>
+
+   {{ prediction_text }}
+
+
+
+ </div>
+
+
+
+
+
+</body>
+
+</html>
